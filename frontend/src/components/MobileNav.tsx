@@ -11,9 +11,10 @@ import {
   SheetTrigger,
 } from "./ui/sheet";
 import MobileNavLinks from "./MobileNavLinks";
+import { Spinner } from "./ui/loading-spinner";
 
 function MobileNav() {
-  const { isAuthenticated, loginWithRedirect, user } = useAuth0();
+  const { isLoading, isAuthenticated, loginWithRedirect, user } = useAuth0();
 
   return (
     <Sheet>
@@ -34,7 +35,8 @@ function MobileNav() {
           </SheetTitle>
           <Separator />
           <SheetDescription className="flex flex-col gap-4">
-            {isAuthenticated ? (
+            {isLoading && <Spinner />}
+            {!isLoading && isAuthenticated ? (
               <MobileNavLinks />
             ) : (
               <Button

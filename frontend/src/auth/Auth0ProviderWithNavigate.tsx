@@ -1,5 +1,6 @@
-import { AppState, Auth0Provider, User } from "@auth0/auth0-react";
+import { Auth0Provider } from "@auth0/auth0-react";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 type Auth0ProviderWithNavigateProps = {
   children: React.ReactNode;
@@ -8,6 +9,8 @@ type Auth0ProviderWithNavigateProps = {
 function Auth0ProviderWithNavigate({
   children,
 }: Auth0ProviderWithNavigateProps) {
+  const navigate = useNavigate();
+
   const domain = import.meta.env.VITE_AUTH0_DOMAIN;
   const clientId = import.meta.env.VITE_AUTH0_CLIENT_ID;
   const redirectUri = import.meta.env.VITE_AUTH0_CALLBACK_URL;
@@ -18,8 +21,8 @@ function Auth0ProviderWithNavigate({
     );
   }
 
-  const onRedirectCallback = (appState?: AppState, user?: User) => {
-    console.log("USER", user);
+  const onRedirectCallback = () => {
+    navigate("/auth-callback");
   };
 
   return (
