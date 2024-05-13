@@ -24,7 +24,7 @@ function UserNameMenu() {
       <DropdownMenuContent>
         <DropdownMenuItem>
           <Link to="/user-profile" className="font-bold hover:text-orange-500">
-            {user?.name}
+            User Profile
           </Link>
         </DropdownMenuItem>
         <Separator />

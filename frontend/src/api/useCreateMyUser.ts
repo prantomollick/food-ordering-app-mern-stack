@@ -29,6 +29,7 @@ export const useCreateMyUser = () => {
 
     return response.json();
   };
+
   const {
     mutateAsync: createUser,
     isLoading,
