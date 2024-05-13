@@ -3,6 +3,7 @@ import Layout from "./layouts/layout";
 import HomePage from "./pages/HomePage";
 import AuthCallbackPage from "./auth/AuthCallbackPage";
 import UserProfilePage from "./pages/UserProfilePage";
+import Hero from "./components/Hero";
 
 const AppRoutes = () => {
   return (
@@ -11,6 +12,7 @@ const AppRoutes = () => {
         path="/"
         element={
           <Layout>
+            <Hero />
             <HomePage />
           </Layout>
         }

@@ -1,7 +1,14 @@
-import React from "react";
+import { useUpdateMyUser } from "@/api/useUpdateMyUser";
+import UserProfileForm from "@/forms/user-profile-form/UserProfileForm";
 
 function UserProfilePage() {
-  return <div>UserProfilePage</div>;
+  const { updateUser, isLoading } = useUpdateMyUser();
+
+  return (
+    <div>
+      <UserProfileForm onSave={updateUser} isLoading={isLoading} />
+    </div>
+  );
 }
 
 export default UserProfilePage;
